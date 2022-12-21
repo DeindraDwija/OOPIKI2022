@@ -1,68 +1,58 @@
 package id.ac.undiksha.siak.entities;
 
-public class Lecturer {
+public class Lecturer extends Person {
 	
 	private String 	nip;
-	private String 	name;
-	private String 	address;
-	private boolean gender;
 	private String 	studyProgram;
 	private String 	department;
 	private String 	faculty;
 
 	public Lecturer() {
-		this.name 				= "<ivalid name>";
-		this.address 			= "<ivalid address>";
-		this.nip 				= "<ivalid nip>";
-		this.studyProgram 		= "<ivalid studyProgram>";
-		this.department 		= "<ivalid department>";
-		this.faculty 			= "<ivalid faculty>";
+		super();
+		this.nip 				= "<invalid nip>";
+		this.studyProgram 		= "<invalid studyProgram>";
+		this.department 		= "<invalid department>";
+		this.faculty 			= "<invalid faculty>";
 	}
 	
-	public Lecturer(String nip, String name, String address, boolean gender, String studyProgram, String department,
+	/*public Lecturer(String nip, String name, String address, boolean gender, String studyProgram, String department,
 			String faculty) {
 		super();
 		this.nip = nip;
-		this.name = name;
-		this.address = address;
-		this.gender = gender;
 		this.studyProgram = studyProgram;
 		this.department = department;
 		this.faculty = faculty;
-	}
+	}*/
 
 	public void printAllInfo() {
 		System.out.println("NIP: " 				+ this.nip);
-		System.out.println("Name: " 			+ this.name);
-		System.out.println("Address: " 			+ this.address);
+		System.out.println("Name: " 			+ getName());
+		System.out.println("Address: " 			+ getAddress());
 		System.out.println("Study Program: " 	+ this.studyProgram);
 		System.out.println("Department: " 		+ this.department);
 		System.out.println("Faculty: " 			+ this.faculty);
 		
 		System.out.println("Gender: " + 
-				(gender ? "Male" : "Female"));
+				(getGender() ? "Male" : "Female"));
 	}
 	
-	public void setName(String name) {
-		this.name = name;
+	
+	
+	public Lecturer(String name, String address, boolean gender,String nip, String studyProgram, String department,
+			String faculty ) {
+		super(name, address, gender);
+		// TODO Auto-generated constructor stub
+		this.nip = nip;
+		this.studyProgram = studyProgram;
+		this.department = department;
+		this.faculty = faculty;
 	}
+
 	public String getNip() {
 		return nip;
 	}
 	public void setNip(String nip) {
 		this.nip = nip;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public boolean isGender() {
-		return gender;
-	}
-	public void setGender(boolean gender) {
-		this.gender = gender;
 	}
 	public String getStudyProgram() {
 		return studyProgram;
@@ -81,8 +71,5 @@ public class Lecturer {
 	}
 	public void setFaculty(String faculty) {
 		this.faculty = faculty;
-	}
-	public String getName() {
-		return this.name;
 	}
 }

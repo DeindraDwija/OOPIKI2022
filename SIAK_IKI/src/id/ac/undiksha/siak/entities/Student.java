@@ -1,54 +1,53 @@
 package id.ac.undiksha.siak.entities;
 
-public class Student {
-	
-	private String 	nim;
-	private String 	name;
-	private String 	address;
-	private boolean gender; //0 female or 1 male
-	private String 	studyProgram;
-	private String 	department;
-	private String 	faculty;
+public class Student extends Person{
+
+	private String nim;
+	private String studyProgram;
+	private String department;
+	private String faculty;
 	
 	public Student() {
-		this.name 				= "<ivalid name>";
-		this.address 			= "<ivalid address>";
-		this.nim 				= "<ivalid nim>";
-		this.studyProgram 		= "<ivalid studyProgram>";
-		this.department 		= "<ivalid department>";
-		this.faculty 			= "<ivalid faculty>";
+		super();
+		this.nim 			= "<invalid nim>";
+		this.studyProgram 	= "<invalid study program>";
+		this.department 	= "<invalid department>";
+		this.faculty 		= "<invalid faculty>";
 	}
 	
-	public Student(String nim, String name, String address, boolean gender, String studyProgram, String department,
-			String faculty) {
-		super();
+	
+	
+	/*public Student(String name, String address, boolean gender, String nim, boolean gender2, String studyProgram,
+			String department, String faculty) {
+		super(name, address, gender);
 		this.nim = nim;
-		this.name = name;
-		this.address = address;
-		this.gender = gender;
+		gender = gender2;
+		this.studyProgram = studyProgram;
+		this.department = department;
+		this.faculty = faculty;
+	}*/
+
+
+
+	public Student(String name, String address, boolean gender, String nim, String studyProgram, String department, String faculty) {
+		super(name, address, gender);
+		// TODO Auto-generated constructor stub
+		this.nim = nim;
 		this.studyProgram = studyProgram;
 		this.department = department;
 		this.faculty = faculty;
 	}
 
 	public void printAllInfo() {
-		System.out.println("NIM: " 				+ this.nim);
-		System.out.println("Name: " 			+ this.name);
-		System.out.println("Address: " 			+ this.address);
-		System.out.println("Study Program: " 	+ this.studyProgram);
-		System.out.println("Department: " 		+ this.department);
-		System.out.println("Faculty: " 			+ this.faculty);
+		System.out.println("\n");
+		System.out.println("NIM: "			+ this.getNim());
+		System.out.println("Name: "			+ this.getName());
+		System.out.println("Address: "		+ this.getAddress());
+		System.out.println("Gender: "		+ (getGender() ? "Male":"Female"));
+		System.out.println("Study Program: "+ this.getStudyProgram());
+		System.out.println("Department: "	+ this.getDepartment());
+		System.out.println("Faculty: "		+ this.getFaculty());
 		
-		System.out.println("Gender: " + 
-				(gender ? "Male" : "Female"));
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public String getName() {
-		return this.name;
 	}
 
 	public String getNim() {
@@ -57,22 +56,6 @@ public class Student {
 
 	public void setNim(String nim) {
 		this.nim = nim;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public boolean isGender() {
-		return gender;
-	}
-
-	public void setGender(boolean gender) {
-		this.gender = gender;
 	}
 
 	public String getStudyProgram() {
@@ -98,6 +81,4 @@ public class Student {
 	public void setFaculty(String faculty) {
 		this.faculty = faculty;
 	}
-	
-	
 }
